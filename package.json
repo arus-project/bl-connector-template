@@ -1,0 +1,35 @@
+{
+  "name": "bl-connector-template",
+  "version": "0.0.1",
+  "description": "A template for creating Black Lion Connectors",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --colors --watch",
+    "build-dev": "set NODE_ENV=development&& webpack --progress --colors --watch",
+    "build-prod": "set NODE_ENV=production&& webpack --progress --colors --watch",
+    "build-test": "set NODE_ENV=production&& webpack --progress --colors --watch",
+    "start": "webpack-dev-server --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arus-project/bl-connector-template.git"
+  },
+  "author": "Jon Horner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arus-project/bl-connector-template/issues"
+  },
+  "homepage": "https://github.com/arus-project/bl-connector-template",
+  "dependencies": {
+    "convict": "^0.6.1",
+    "superagent": "^0.21.0"
+  },
+  "devDependencies": {
+    "6to5": "^3.3.10",
+    "6to5-core": "^3.3.10",
+    "6to5-loader": "^3.0.0",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
+  }
+}
