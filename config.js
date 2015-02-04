@@ -19,10 +19,15 @@ var conf = convict({
     doc: "Endpoint password",
     default: "",
     env: "ENDPOINT_PASSWORD"
-  }
+  },
   /**
    * TODO: Enter your REST endpoint variables here
    */
+   getProfileUrl: {
+     doc: "The REST Endpoint to call.",
+     default: "",
+     env: "PROFILE_URL"
+   }
 });
 
 

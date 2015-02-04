@@ -36,5 +36,4 @@ test.json
 
 # Generated files
 build/
-release/
 test/build/

@@ -17,15 +17,16 @@ var defaultConfig = {
       '__PROD__': JSON.stringify(JSON.parse(process.env.BUILD_PROD || 'false')),
       '__TEST__': JSON.stringify(JSON.parse(process.env.BUILD_TEST || 'false')),
       '__USERNAME__': JSON.stringify(config.get('username')),
-      '__PASSWORD__': JSON.stringify(config.get('password'))
+      '__PASSWORD__': JSON.stringify(config.get('password')),
       // TODO: define your endpoint variables globally here so as to not expose them in the source code
+      '__PROFILE_URL__': JSON.stringify(config.get('getProfileUrl'))
     })
   ]
 };
 var devConfig = {
   name: 'development',
   entry: {
-    ConnectorTemplate: 'index.js'
+    ConnectorTemplate: './index.js'
   },
   output: {
     libraryTarget: 'var',
@@ -40,7 +41,7 @@ var devConfig = {
 var prodConfig = {
   name: 'production',
   entry: {
-    ConnectorTemplate: 'index.js'
+    ConnectorTemplate: './index.js'
   },
   output: {
     libraryTarget: 'var',
@@ -55,7 +56,7 @@ var prodConfig = {
 var testConfig = {
   name: 'test',
   entry: {
-    ConnectorTemplate: 'index.js'
+    ConnectorTemplate: './index.js'
   },
   output: {
     libraryTarget: 'commonjs2',
