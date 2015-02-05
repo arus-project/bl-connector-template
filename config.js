@@ -24,12 +24,15 @@ var conf = convict({
     default: "",
     env: "ENDPOINT_PASSWORD"
   }
-  // TODO: Enter your REST endpoint variables here
-  // ,getProfileUrl: {
-  //   doc: "The REST Endpoint to call.",
-  //   default: "",
-  //   env: "PROFILE_URL"
-  // }
+  /**
+   * TODO: Enter your REST endpoint variables here. Their names must be the same
+   * as they are in the `.json` file they are defined in.
+   */
+  ,getProfileUrl: {
+    doc: "The REST Endpoint to call.",
+    default: "",
+    env: "PROFILE_URL"
+  }
 });
 
 /**

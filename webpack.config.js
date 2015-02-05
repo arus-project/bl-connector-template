@@ -17,7 +17,7 @@ var commonConfig = {
       '__USERNAME__': JSON.stringify(config.get('username')),
       '__PASSWORD__': JSON.stringify(config.get('password'))
       // TODO: define your endpoint variables globally here so as to not expose them in the source code
-      // ,'__PROFILE_URL__': JSON.stringify(config.get('getProfileUrl'))
+      ,'__PROFILE_URL__': JSON.stringify(config.get('getProfileUrl'))
     })
   ]
 };
