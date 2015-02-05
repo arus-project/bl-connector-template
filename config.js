@@ -1,6 +1,10 @@
 var convict = require('convict');
 var fs = require('fs');
 
+/**
+ * This reads in the current Node Environment or sets it to the default
+ * environment if NODE_ENV hasn't been set.
+ */
 var env = process.env.NODE_ENV || "development";
 
 var conf = convict({
@@ -19,18 +23,19 @@ var conf = convict({
     doc: "Endpoint password",
     default: "",
     env: "ENDPOINT_PASSWORD"
-  },
-  /**
-   * TODO: Enter your REST endpoint variables here
-   */
-   getProfileUrl: {
-     doc: "The REST Endpoint to call.",
-     default: "",
-     env: "PROFILE_URL"
-   }
+  }
+  // TODO: Enter your REST endpoint variables here
+  // ,getProfileUrl: {
+  //   doc: "The REST Endpoint to call.",
+  //   default: "",
+  //   env: "PROFILE_URL"
+  // }
 });
 
-
+/**
+ * This looks for the `.json` file for the current environment and parses it for
+ * the variables defined above in the `conf` object.
+ */
 if (fs.existsSync(__dirname + '/' + env + '.json')){
   conf.loadFile(__dirname + '/' + env + '.json').validate();
 } else {

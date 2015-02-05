@@ -2,10 +2,10 @@
 var Request = require('./lib/Request.js');
 var Serialize = require('./lib/Serializer.js');
 
-/**
- * Define all the different REST Calls this Connector knows how to make and Serialize
- */
 var RESTCalls = {
+  /**
+   * Define all the different REST Calls this Connector knows how to make and Serialize
+   */
   'getProfile': function() {
     /**
      * Set up your http request parameters here using global variables

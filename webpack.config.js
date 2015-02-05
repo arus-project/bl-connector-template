@@ -5,7 +5,8 @@ var env = config.get('env');
 
 console.log("Environment is " + env);
 
-var defaultConfig = {
+// These options are common to the configuration for each environment
+var commonConfig = {
   module: {
     loaders: [{
       test: /\.(?:js|jsx)$/, loader: "6to5-loader", exclude: /node_modules/
@@ -13,20 +14,18 @@ var defaultConfig = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      '__DEV__': JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-      '__PROD__': JSON.stringify(JSON.parse(process.env.BUILD_PROD || 'false')),
-      '__TEST__': JSON.stringify(JSON.parse(process.env.BUILD_TEST || 'false')),
       '__USERNAME__': JSON.stringify(config.get('username')),
-      '__PASSWORD__': JSON.stringify(config.get('password')),
+      '__PASSWORD__': JSON.stringify(config.get('password'))
       // TODO: define your endpoint variables globally here so as to not expose them in the source code
-      '__PROFILE_URL__': JSON.stringify(config.get('getProfileUrl'))
+      // ,'__PROFILE_URL__': JSON.stringify(config.get('getProfileUrl'))
     })
   ]
 };
+
 var devConfig = {
   name: 'development',
   entry: {
-    ConnectorTemplate: './index.js'
+    BlConnector: './index.js'
   },
   output: {
     libraryTarget: 'var',
@@ -34,41 +33,42 @@ var devConfig = {
     path: './build',
     filename: '[name].js'
   },
-  externals: defaultConfig.externals,
-  module: defaultConfig.module,
-  plugins: defaultConfig.plugins
+  externals: commonConfig.externals,
+  module: commonConfig.module,
+  plugins: commonConfig.plugins
 };
 var prodConfig = {
   name: 'production',
   entry: {
-    ConnectorTemplate: './index.js'
+    BlConnector: './index.js'
   },
   output: {
-    libraryTarget: 'var',
-    library: 'ConnectorTemplate',
-    path: './release',
+    libraryTarget: 'commonjs2',
+    library: 'BlConnector',
+    path: '.',
     filename: '[name].js'
   },
-  externals: defaultConfig.externals,
-  module: defaultConfig.module,
-  plugins: defaultConfig.plugins
+  externals: commonConfig.externals,
+  module: commonConfig.module,
+  plugins: commonConfig.plugins
 };
 var testConfig = {
   name: 'test',
   entry: {
-    ConnectorTemplate: './index.js'
+    BlConnector: './index.js'
   },
   output: {
     libraryTarget: 'commonjs2',
-    library: 'ConnectorTemplate',
+    library: 'BlConnector',
     path: './test/build',
     filename: '[name].js'
   },
-  externals: defaultConfig.externals,
-  module: defaultConfig.module,
-  plugins: defaultConfig.plugins
+  externals: commonConfig.externals,
+  module: commonConfig.module,
+  plugins: commonConfig.plugins
 };
 
+// Exports a configuration that corresponds to the current environment
 switch(env) {
   case 'development':
     module.exports = devConfig;
