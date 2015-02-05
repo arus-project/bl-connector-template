@@ -54,9 +54,8 @@ be required in your `Black-Lion` project at `./[name].js`
 `npm run build-test` builds a module that can be required in your test
 suite and builds to `./test/build/[name].js`
 
-**Note:** the commands above currently only work in on a windows platform. To
-use it on OS X you must change `set NODE_ENV={environment}` in all the scripts in `package.json`
-to just `NODE_ENV={environment}`.
+**Note:** the commands above only work in on a linux platform. To
+use it on Windows add `-win` to the end of the build commands (`npm run build-dev-win`).
 
 `npm run build` reads the default environment from `env` in the `./config.js`
 file and runs the corresponding build configuration. The intial default

@@ -1,13 +1,16 @@
 {
   "name": "bl-connector",
-  "version": "0.1.3-alpha",
+  "version": "0.1.4-alpha",
   "description": "A template for creating Black Lion Connectors",
   "main": "BlConnector.js",
   "scripts": {
     "build": "webpack --progress --colors --watch",
-    "build-dev": "set NODE_ENV=development&& webpack --progress --colors --watch",
-    "build-prod": "set NODE_ENV=production&& webpack --progress --colors -p",
-    "build-test": "set NODE_ENV=test&& webpack --progress --colors --watch",
+    "build-dev": "NODE_ENV=development&& webpack --progress --colors --watch",
+    "build-prod": "NODE_ENV=production&& webpack --progress --colors -p",
+    "build-test": "NODE_ENV=test&& webpack --progress --colors --watch",
+    "build-dev-win": "set NODE_ENV=development&& webpack --progress --colors --watch",
+    "build-prod-win": "set NODE_ENV=production&& webpack --progress --colors -p",
+    "build-test-win": "set NODE_ENV=test&& webpack --progress --colors --watch",
     "start": "webpack-dev-server --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
